@@ -10,7 +10,7 @@ import uuid
 import types
 import logging
 import util.status_code as sc
-from gsutil.lazy_object import LazyObject
+from util.lazy import LazyObject
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import REDIRECT_FIELD_NAME
