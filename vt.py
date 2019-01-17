@@ -23,9 +23,9 @@ def query_vote_themes():
     for record in records:
         data = record.to_dict
         try:
-            data["rate"] = round(record.count / total_count, 2) * 100
+            data["rate"] = str(round(record.count / total_count, 2) * 100) + "%"
         except ZeroDivisionError:
-            data["rate"] = 0
+            data["rate"] = "0%"
         result.append(data)
     return result
 

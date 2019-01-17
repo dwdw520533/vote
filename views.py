@@ -51,7 +51,7 @@ def user_logout(req):
     return ApiResult(sc.E_SUCC)
 
 
-@expose(rest=True, login_required=True)
+@expose(rest=True)
 def vote_list(req):
     return ApiResult(sc.E_SUCC, vote_ops.query_vote_themes())
 

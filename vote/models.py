@@ -14,6 +14,7 @@ class VoteTheme(models.Model):
     title = models.CharField(max_length=128)
     content = models.CharField(max_length=512)
     count = models.IntegerField(default=0)
+    icon = models.CharField(max_length=512)
     created = models.DateTimeField(default=datetime.datetime.now)
     lut = models.DateTimeField(default=datetime.datetime.now)
 
@@ -23,7 +24,8 @@ class VoteTheme(models.Model):
             "code": self.code,
             "title": self.title,
             "content": self.content,
-            "count": self.count
+            "count": self.count,
+            "icon": self.icon
         }
 
 
