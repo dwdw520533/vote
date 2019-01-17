@@ -40,7 +40,9 @@ def user_login(req):
     if not req.user.is_authenticated:
         easy_login(req, user)
     req.session.set_expiry(7257600)
-    return ApiResult(sc.E_SUCC)
+    return ApiResult(sc.E_SUCC, {
+        "session_id": req.session.session_key
+    })
 
 
 @expose(rest=True)
