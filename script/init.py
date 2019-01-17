@@ -23,5 +23,6 @@ vote_theme = [
 ]
 
 
+VoteTheme.objects.all().delete()
 for vote in vote_theme:
     VoteTheme.objects.create(**vote)

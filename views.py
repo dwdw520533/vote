@@ -16,12 +16,11 @@ def user_register(req):
     password = req.GET.get("password")
     if not (user_name and password):
         return ApiResult(sc.E_PARAM)
+    user = user_ops.get_user(user_name)
+    if user:
+        return ApiResult(sc.E_PARAM, msg="用户名已注册")
     # 创建用户
-    created, user = user_ops.get_or_create_user(user_name, password)
-    # 登陆
-    if not req.user.is_authenticated:
-        easy_login(req, user)
-    req.session.set_expiry(7257600)
+    user_ops.get_or_create_user(user_name, password)
     return ApiResult(sc.E_SUCC)
 
 
